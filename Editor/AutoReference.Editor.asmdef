@@ -1,0 +1,11 @@
+﻿{
+  "name": "AutoReference.Editor",
+  "includePlatforms": [
+    "Editor"
+  ],
+  "references": [
+    "AutoReference"
+  ],
+
+  "rootNamespace": "Teo"
+}

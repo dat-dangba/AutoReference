@@ -1,0 +1,12 @@
+﻿{
+    "name": "com.ddb.autoreference",
+    "displayName": "DDB-AutoReference",
+    "description": "A toolkit to automatically retrieve and filter refences to components or assets via custom attributes.",
+    "author": "datdb",
+    "version": "1.0.0",
+    "unity": "2018.3",
+    "website": "https://github.com/dat-dangba/AutoReference",
+    "license": "MIT",
+    "documentationUrl": "https://zoodinger.gitlab.io/autoreference/index.html",
+    "dependencies": {}
+}

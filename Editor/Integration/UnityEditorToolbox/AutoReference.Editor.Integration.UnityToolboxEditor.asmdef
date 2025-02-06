@@ -1,0 +1,23 @@
+﻿{
+  "name": "AutoReference.Editor.Integration.UnityToolboxEditor",
+  "references": [
+    "AutoReference",
+    "Toolbox",
+    "Toolbox.Editor",
+    "AutoReference.Editor"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": true,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [
+    "AUTOREF_EDITOR_TOOLBOX",
+    "!AUTOREF_DISABLE_ONINSPECT"
+  ],
+  "versionDefines": [],
+  "noEngineReferences": false
+}
