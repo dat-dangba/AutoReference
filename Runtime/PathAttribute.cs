@@ -29,7 +29,6 @@ namespace Teo.AutoReference
 
         protected override bool Validate(in FieldContext context, Object value)
         {
-            UnityEngine.Debug.Log($"datdb - Validate {value.name} {AssetDatabase.GetAssetPath(value)}");
             string path = AssetDatabase.GetAssetPath(value);
             return _paths.Any(p => path.Equals(p, _comparison));
         }
