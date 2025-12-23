@@ -17,7 +17,8 @@ namespace Teo.AutoReference
 
         public PathAttribute(string path, params string[] paths) :
             this(StringComparison.Ordinal, path, paths)
-        { }
+        {
+        }
 
         public PathAttribute(StringComparison comparison, string path, params string[] paths)
         {
