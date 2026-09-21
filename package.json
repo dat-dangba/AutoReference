@@ -1,6 +1,6 @@
 {
   "name": "com.ddb.autoreference",
-  "displayName": "ddb - Auto-Reference Toolkit",
+  "displayName": "ddb - Auto Reference",
   "description": "A toolkit to automatically retrieve and filter references to components or assets via custom attributes.",
   "author": "datdb",
   "version": "1.0.0",
