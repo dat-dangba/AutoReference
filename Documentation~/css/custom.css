@@ -1,0 +1,60 @@
+blockquote {
+    border-left: 4px solid #2980B9;
+    background: #f0f6ff;
+    padding: 0.75em 1em;
+    margin: 1em 0 !important;
+    font-style: italic;
+    font-size: 0.95em;
+    color: #333;
+}
+
+blockquote p {
+    margin: 0;
+}
+
+.rst-content :not(pre) > code,
+.rst-content :not(pre) > tt {
+    background: none !important;
+    color: #a65c5c !important;
+    font-weight: 550 !important;
+    font-size: 0.9em !important;
+    padding: 0 !important;
+    border: none !important;
+}
+
+.copy-link {
+    font: inherit;
+    font-size: .9em;
+    padding: .12em .4em;
+    margin-left: .3rem;
+    border: 1px solid #e1e4e5;
+    background: #f8f8f8;
+    border-radius: 3px;
+    cursor: pointer;
+    line-height: 1;
+    vertical-align: baseline
+}
+
+.wy-table-responsive table td,
+.wy-table-responsive table th {
+    white-space: normal !important;
+}
+
+.md-typeset table td,
+.md-typeset table th {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.md-typeset table tr > th:first-child,
+.md-typeset table tr > td:first-child {
+    overflow-wrap: normal;
+    word-break: keep-all;
+}
+
+.md-typeset table tr > th:first-child code,
+.md-typeset table tr > td:first-child code {
+    white-space: normal !important;
+    overflow-wrap: normal;
+    word-break: keep-all;
+}

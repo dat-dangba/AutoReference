@@ -1,0 +1,13 @@
+stages:
+  - deploy
+
+pages:
+  stage: deploy
+  script:
+    - mkdir public
+    - cp -r Documentation~/* public/
+  artifacts:
+    paths:
+      - public
+  only:
+    - main

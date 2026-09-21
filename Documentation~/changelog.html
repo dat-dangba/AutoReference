@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Zoodinger" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Changelog - Auto-Reference Toolkit</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="css/custom.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Changelog";
+        var mkdocs_page_input_path = "changelog.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="index.html" class="icon icon-home"> Auto-Reference Toolkit
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="index.html">Auto-Reference Toolkit</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="cheatsheet.html">Cheat Sheet</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Changelog</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#231">2.3.1</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#230">2.3.0</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#new">New</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#changes">Changes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes">Fixes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#documentation-updates">Documentation updates</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#221">2.2.1</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#changes_1">Changes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#220">2.2.0</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#new_1">New</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#changes_2">Changes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#210">2.1.0</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#new_2">New</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#changes_3">Changes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#203">2.0.3</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#202">2.0.2</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#201">2.0.1</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#fixed">Fixed</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#new_3">New</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#200">2.0.0</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#breaking-changes">Breaking Changes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#behavior-changes-possibly-breaking">Behavior changes (possibly breaking):</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#new_4">New</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_1">Fixes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#128">1.2.8</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_2">Fixes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#127">1.2.7</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_3">Fixes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#126">1.2.6</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_4">Fixes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#125">1.2.5</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#new_5">New</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#changes_4">Changes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#improvements">Improvements</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_5">Fixes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#124">1.2.4</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#new_6">New</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#changes_5">Changes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#123">1.2.3</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_6">Fixes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#122">1.2.2</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#improvements_1">Improvements</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_7">Fixes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#121">1.2.1</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_8">Fixes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#120">1.2.0</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#summary">Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#new_7">New</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#changes_6">Changes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_9">Fixes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#deprecations">Deprecations</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#111">1.1.1</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#new_8">New</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#110">1.1.0</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_10">Fixes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#new_9">New</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#improvements_2">Improvements</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#102">1.0.2</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#new_10">New</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_11">Fixes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#changes_7">Changes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#deprecations_1">Deprecations</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#101">1.0.1</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#new_11">New</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_12">Fixes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#101-rc1">1.0.1-rc.1</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#new_12">New</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#improvements_3">Improvements</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_13">Fixes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#100">1.0.0</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="license.html">License</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Auto-Reference Toolkit</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Changelog</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="auto-reference-changelog">Auto-Reference Changelog</h1>
+<h2 id="231">2.3.1</h2>
+<ul>
+<li>Fixed documentation to include the correct current git tag.</li>
+<li>Add the license to the site and a link to it in <code>package.json</code></li>
+</ul>
+<h2 id="230">2.3.0</h2>
+<h3 id="new">New</h3>
+<ul>
+<li>Saving a prefab now also performs syncing if syncing on scene save is enabled.</li>
+<li>Added new <code>SyncMode</code> actions:<ul>
+<li><code>SyncMode.Expanded</code> always retrieves and validates references, but allows extra values that satisfy the filters.</li>
+<li><code>SyncMode.ExpandedPermissive</code> always retrieves and validates references, but allows extra values without
+  validation.</li>
+</ul>
+</li>
+</ul>
+<h3 id="changes">Changes</h3>
+<ul>
+<li><code>SyncMode</code> has new naming conventions. Values have been renamed to be shorter, more consistent,
+  and more unambigious as to their functionality. Prior values are deprecated but still allowed for now.<ul>
+<li><code>GetIfEmpty</code> was renamed to <code>IfEmptyPermissive</code></li>
+<li><code>ValidateOrGetIfEmpty</code> was renamed to <code>IfEmpty</code></li>
+<li><code>AlwaysGetAndValidate</code> was renamed to <code>Always</code></li>
+</ul>
+</li>
+</ul>
+<p>The reasoning is simple: All modes except for <code>ValidateOnly</code> do retrieval. All <em>retrieved</em> values are always validated.
+So, including "Get" was redundant, and including "Validate" in some names but not all was confusing. Moreover the
+suffix <code>Permissive</code> was added to imply any <em>additional</em> values (i.e. those that were not retrieved) are not validated.</p>
+<h3 id="fixes">Fixes</h3>
+<ul>
+<li>Fix very silly bug with <code>AutoReferenceEditor</code> always showing an error when inherited.</li>
+<li>Fix compatibility for Unity version 2021.1.</li>
+</ul>
+<p>The fix for Unity 2020.3 in Auto-Reference 2.2.0 should have also been applied for Unity version 2021.1.
+This is now fixed. However, 2021.1 required additional fixes that 2020.3 did not require as it contained some
+back-ported features we relied on, due to it being an LTS release.</p>
+<h3 id="documentation-updates">Documentation updates</h3>
+<p>On top of new information that was added for the new features, the documentation went through a major overhaul:
+- New style for inline code elements
+- Blockquotes with a custom style
+- Copy buttons for git links
+- Fixed several typos, broken sentences, and misplaced punctuation marks.
+- Removed some outdated information and fixed broken links that referred to moved/changed sections
+- Updated the wording of several sentences for clarity
+- Improved the appearance of tables to prevent them from overflowing the page</p>
+<h2 id="221">2.2.1</h2>
+<h3 id="changes_1">Changes</h3>
+<p>This version does not add any new features, but it improves the Auto-Reference Window experience:</p>
+<ul>
+<li>Use alternating background for rows.</li>
+<li>Display vertical dividers between columns (can be turned off)</li>
+<li>New resizing strategy for columns:<ul>
+<li>Columns now resize to fit the window by default. Old behavior (overflow) is still available.</li>
+<li>Columns can be proportionally resized when resizing the window (off by default)</li>
+</ul>
+</li>
+<li>Display cell contents on hover. This is useful when the column is too narrow to display all the contents.</li>
+<li>Other visual refinements.</li>
+</ul>
+<p>Access column settings by right-clicking on the column headers.</p>
+<h2 id="220">2.2.0</h2>
+<h3 id="new_1">New</h3>
+<ul>
+<li>Fix support for Unity version 2020.3. There are currently no plans to support any versions earlier
+  than 2020.3.</li>
+</ul>
+<h3 id="changes_2">Changes</h3>
+<ul>
+<li>Package supported Unity version was bumped to 2020.3 from 2018.3. This was incorrect because only versions
+  2021.1 and above were working prior to this update.</li>
+<li>Minor changes to the Auto-Reference Window header appearance.</li>
+</ul>
+<h2 id="210">2.1.0</h2>
+<h3 id="new_2">New</h3>
+<ul>
+<li>Added <code>ISyncObserver</code> interface to allow sync callbacks on non-Unity types, as long as they exist as direct fields in
+  <code>MonoBehaviour</code> scripts.</li>
+<li>Added <code>AutoReference.SyncData</code> family of methods to control the syncing of <code>ISyncObserver</code> objects that
+  aren't direct fields on scripts, or they exist as elements within <code>List&lt;T&gt;</code> or <code>T[]</code> fields.</li>
+</ul>
+<h3 id="changes_3">Changes</h3>
+<ul>
+<li>Update the Auto-Reference Window to remove deprecated warnings for Unity 6.2+</li>
+<li>Removed tracking of currently syncing scripts. This was a remnant of long-obsolete code and had stopped working
+  properly anyway.</li>
+<li>Slight improvements in usage warnings and errors.</li>
+<li>Slight visual improvements in the Auto-Reference Window.</li>
+<li>Some internal changes.</li>
+</ul>
+<h2 id="203">2.0.3</h2>
+<ul>
+<li>Change assembly references to reflect namespaces. This is possibly a breaking but minor change.</li>
+<li>Small internal changes</li>
+</ul>
+<h2 id="202">2.0.2</h2>
+<ul>
+<li>Fix issues with some exception formatting combinations in older Unity versions.</li>
+</ul>
+<h2 id="201">2.0.1</h2>
+<p>This is a small update that improves how exceptions are logged. This only affects exceptions thrown while syncing a
+field or during any <code>OnAfterSync</code> callbacks.</p>
+<h3 id="fixed">Fixed</h3>
+<ul>
+<li>Error hyperlinks now work properly for Unity versions 6+</li>
+</ul>
+<p><em>Unity changed how console hyperlinks are handled in version 6, which prevented the links from taking the user to the
+appropriate line.</em></p>
+<h3 id="new_3">New</h3>
+<ul>
+<li>Options to enable and control formatting for exceptions thrown during syncing or <code>OnAfterSync</code> callbacks.</li>
+</ul>
+<h2 id="200">2.0.0</h2>
+<p>This update introduces several breaking changes, resolves minor issues, and adds new features. It represents a
+culmination of key improvements identified during use of the toolkit.</p>
+<h3 id="breaking-changes">Breaking Changes</h3>
+<ul>
+<li>All previous preference attributes have been removed and replaced by a Project Settings page and a Preferences page.</li>
+<li>Support for keeping empty values in the inspector has been dropped and replaced by a new feature (see Sync Toggle
+  in New features below). This feature was a workaround to inconvenient behavior sometimes observed when syncing
+  while editing would block the user from certain actions. However:<ul>
+<li>This solution was hacky and did not fix all problems associated with automatic syncing while inspecting.</li>
+<li>It made the code a harder to understand particularly when extending the <code>AutoReferenceEditor</code> class.</li>
+<li><code>AutoReference.Cleanup</code> was removed as a result.</li>
+</ul>
+</li>
+<li>Due to the above changes, some options were removed from SyncPreferences while it also contains some new ones.</li>
+<li><code>SyncMode</code> and <code>ContextMode</code> can no longer be provided as constructor parameters to classes deriving from
+  <code>AutoReferenceAttribute</code>. The user can now provide a <code>[SyncOptions(...)]</code> attribute to pass these options instead.</li>
+<li><code>IOnAfterSync</code> was removed to simplify the handling of after sync callbacks.</li>
+<li><code>ApplyFiltersAttribute</code> is now internal and no longer visible to the user. It will still be added implicitly like
+  before. There is no need to add it manually anymore after moving <code>ContextMode</code> out of the attribute constructors.
+  Keeping it internal allows the simplification of some error checking logic.</li>
+<li><code>bool ValidateExisting(Object obj)</code> is removed from <code>AutoReferenceAttribute</code>. The user should now override
+  <code>IEnumerable&lt;Object&gt; ValidateObjects(IEnumerable&lt;Objects&gt; objects)</code> which allows for more control.</li>
+</ul>
+<h3 id="behavior-changes-possibly-breaking">Behavior changes (possibly breaking):</h3>
+<ul>
+<li>Scripts now only sync themselves in the inspector instead of the whole game object.</li>
+<li>AutoReferenceEditor was revamped.<ul>
+<li>Now using AutoReferenceDefaultEditor as a fallback.</li>
+<li>AutoReferenceEditor always supports syncing even with integration disabled.</li>
+</ul>
+</li>
+<li>Some undocumented classes may have moved or become internal.</li>
+</ul>
+<h3 id="new_4">New</h3>
+<ul>
+<li>Added <code>FindInParent</code> Attribute, which is a new core attribute to search for components under a parent of a specific
+  type. It also allows filtering the parent via a callback method.</li>
+<li>Added a sync toggle button in the inspector which is displayed for scripts with auto-reference functionality and
+  allows the user to temporarily disable syncing during editing. This is also supported in all 3rd party tool
+  integrations. New preferences:<ul>
+<li>Modify the look and position of the sync toggle button.</li>
+<li>Individually enable/disable 3rd party tool integration. The preferencesse will only be visible
+  if any of the corresponding tools (Odin, Editor Toolbox, or TriInspector) are detected.</li>
+<li>New logging options to fine-tune logging behavior.</li>
+</ul>
+</li>
+<li>New buttons in the AutoReferenceWindow to quickly open settings and documentation.</li>
+<li>Add an option to ignore only the current component when using <code>[IgnoreSelf]</code> instead of the whole transform.</li>
+</ul>
+<h3 id="fixes_1">Fixes</h3>
+<ul>
+<li>After-sync callbacks no longer show a spurious error log telling the user to check the Auto-Reference Window.</li>
+<li>A fix to a problem with Component <strong>↔</strong> GameObject adaptations that would throw null reference exceptions (e.g.
+  using the <code>[IgnoreSelf]</code> filter on a <code>GameObject</code> field).</li>
+</ul>
+<h2 id="128">1.2.8</h2>
+<h3 id="fixes_2">Fixes</h3>
+<ul>
+<li>Fixed an issue where private callbacks weren't used by child classes.</li>
+<li>Fixed an issue that caused an exception sometimes when ApplyFiltersAttribute was used implicitly.</li>
+</ul>
+<h2 id="127">1.2.7</h2>
+<h3 id="fixes_3">Fixes</h3>
+<ul>
+<li>Fixed Unity Editor locking when opening the Auto-Reference Window without any MonoBehaviour scripts in the project.</li>
+</ul>
+<h2 id="126">1.2.6</h2>
+<h3 id="fixes_4">Fixes</h3>
+<ul>
+<li>Fixed regression with base fields not always getting synced.</li>
+</ul>
+<h2 id="125">1.2.5</h2>
+<h3 id="new_5">New</h3>
+<ul>
+<li><code>SkipSyncOnFilterError</code> option to skip syncing a field if any of its filters have errors.</li>
+</ul>
+<h3 id="changes_4">Changes</h3>
+<ul>
+<li>Usage errors in <code>TagAttribute</code> and <code>LayerAttribute</code> were changed to warnings. Intuitively the user should expect that
+  no objects should pass through if they're filtered through an invalid tag or layer. This behaviour is now identical
+  to the old behaviour before validation was introduced.</li>
+</ul>
+<h3 id="improvements">Improvements</h3>
+<ul>
+<li>Minor visual improvements to the Auto-Reference Window.</li>
+<li>Auto-Reference Window now shows number of scripts with auto-reference info isntead of just the total number
+  of all scripts</li>
+</ul>
+<h3 id="fixes_5">Fixes</h3>
+<ul>
+<li>Fixed Auto-Reference glitch that showed the wrong text color for "No usage errors or warnings detected" when the
+  project was loaded.</li>
+</ul>
+<h2 id="124">1.2.4</h2>
+<h3 id="new_6">New</h3>
+<ul>
+<li>Added validation for <code>TagAttribute</code> and <code>LayerAttribute</code> to show a warning or error for invalid tags/layers.</li>
+</ul>
+<h3 id="changes_5">Changes</h3>
+<ul>
+<li>Clear Cache log message was simplified.</li>
+</ul>
+<h2 id="123">1.2.3</h2>
+<h3 id="fixes_6">Fixes</h3>
+<ul>
+<li>Change detection has been rewritten from scratch with a new method using Unity's built-in serialized property data
+  comparison. Hopefully this will fix all change detection issues once and for all. This is an issue that affected
+  types that contain after-sync callbacks.</li>
+</ul>
+<h2 id="122">1.2.2</h2>
+<h3 id="improvements_1">Improvements</h3>
+<p><code>TypeConstraint</code> now shows an error or warning for invalid usage, depending on the issue.</p>
+<h3 id="fixes_7">Fixes</h3>
+<p><code>TypeConstraint</code> now works properly.</p>
+<h2 id="121">1.2.1</h2>
+<h3 id="fixes_8">Fixes</h3>
+<p>Fix some serializable enum values throwing exceptions during <code>OnAfterSync</code> callbacks.</p>
+<h2 id="120">1.2.0</h2>
+<h3 id="summary">Summary</h3>
+<p>This version focuses heavily on improving the overall experience of dealing with invalid usages. Errors and warnings
+have become more concise and streamlined, and they no longer pollute the log console with repeated
+messages while syncing. Instead, the user will see a short error or warning on the console and check out the brand new
+Auto-Reference Window for more information (which also allows quickly jumping to the problematic files from there).
+It's possible to turn the old behaviour back on, but it's now disabled by default.</p>
+<h3 id="new_7">New</h3>
+<ul>
+<li>Auto-Reference Report Window which displays useful information:<ul>
+<li>All warnings and errors in auto-reference usages</li>
+<li>Statistics about auto-reference fields</li>
+</ul>
+</li>
+<li>More logging of invalid usages, such as warnings when attempting to sync invalid fields.</li>
+<li>Add LogToConsole setting which can control Auto-Reference console logging.</li>
+<li>Add option to interrupt build if on-build syncing produced any usage warnings.</li>
+</ul>
+<h3 id="changes_6">Changes</h3>
+<ul>
+<li>Primary attributes are now initialized during retrieval of auto-reference information instead of when syncing for the
+  first time.</li>
+<li>Major changes to the logging system.</li>
+</ul>
+<h3 id="fixes_9">Fixes</h3>
+<ul>
+<li>Fixed derived types syncing inherited fields multiple times.</li>
+<li>Fixed errors with <code>OnAfterSync</code> callbacks throwing in certain situations.</li>
+<li>Sync callbacks are now more accurately retrieved and duplicate callbacks (due to user error) are automatically
+  removed.</li>
+<li>Properly handle exceptions that can happen in after sync callbacks.</li>
+</ul>
+<h3 id="deprecations">Deprecations</h3>
+<ul>
+<li>Dropped support for <code>Sync</code> and <code>SyncAllFields</code> attributes. Now it's always enabled when <code>OnAfterSync</code> exists.</li>
+</ul>
+<h2 id="111">1.1.1</h2>
+<h3 id="new_8">New</h3>
+<ul>
+<li>Added option to interrupt build if on-build syncing produced any errors.</li>
+<li>Added menu option to clear cache.</li>
+</ul>
+<h2 id="110">1.1.0</h2>
+<p>This update focuses on adding new attributes and features but also fixes some breaking bugs.</p>
+<h3 id="fixes_10">Fixes</h3>
+<ul>
+<li>Fixed implicit Transform ↔ GameObject conversions which erroneously discarded objects in some cases.</li>
+<li>Fixed Scene syncing that skipped some objects.</li>
+</ul>
+<h3 id="new_9">New</h3>
+<ul>
+<li><code>GetInSiblings</code> primary attribute.</li>
+<li><code>GetInChildren</code> and <code>GetInParent</code> now have a <code>MaxDepth</code> property.</li>
+<li><code>ContainsInChildren</code> and <code>ContainsInParent</code> filters which also have a <code>MaxDepth</code> property.</li>
+<li><code>IgnoreNested</code> filter which discards components that are children of any other component in the input.</li>
+</ul>
+<h3 id="improvements_2">Improvements</h3>
+<ul>
+<li>Improved exception logging during syncing to include hyperlinks to files.</li>
+<li>Other minor internal improvements.</li>
+</ul>
+<h2 id="102">1.0.2</h2>
+<h3 id="new_10">New</h3>
+<ul>
+<li>Attributes with a <code>TypeConstraint</code> of <code>Component</code> can now be used when the underlying field type is <code>GameObject</code>.
+  The syncing converts references from game objects to transforms and vice versa whenever necessary. Note that this
+  does not apply to type constraints with a subclass of <code>Component</code>.</li>
+<li>Ability to override filter order via the <code>Order</code> property.</li>
+<li><code>Take</code>, <code>TakeLast</code>, and <code>TakeWhile</code> filters.</li>
+<li><code>Contains</code> filter to check that a game object has a component by type.</li>
+<li><code>CallbackMethodInfo</code> struct for a convenient way to get method callbacks for the filters that require it.</li>
+</ul>
+<h3 id="fixes_11">Fixes</h3>
+<ul>
+<li>Mismatched references are now handled more correctly.</li>
+</ul>
+<h3 id="changes_7">Changes</h3>
+<ul>
+<li>Made some big internal restructuring changes in the <code>AutoReferenceAttribute</code> and <code>AutoReferenceFilterAttribute</code>
+  classes.</li>
+<li>Filter ordering has been adjusted.</li>
+<li>Some filters are now allowed multiple times on the same field.</li>
+<li>Possibly breaking: <code>Name</code> filter now uses case-sensitive matching to mirror Unity's Find methods.</li>
+<li><code>ValidationResult</code> can now be a warning which allows the operation to continue while still logging an output.</li>
+</ul>
+<h3 id="deprecations_1">Deprecations</h3>
+<ul>
+<li>The constants used previously by filter attributes to specify their <code>PriorityOrder</code> have been deprecated.
+  The <code>FilterOrder</code> static class which contains constants should now be used instead.</li>
+<li>Using a caller type (an external type that's not the behaviour itself) with a non-static method is depreacated.</li>
+</ul>
+<h2 id="101">1.0.1</h2>
+<h3 id="new_11">New</h3>
+<ul>
+<li>Some internal functionality was refactored so that it's now exposed to the user. This functionality can be found in
+  the new <code>SceneOperations</code> and <code>AssetOperations</code> classes in the <code>Teo.AutoReference.Editor</code> namespace. They provide
+  some operations such as syncing scenes and syncing the prefabs in the project.</li>
+<li>Added ability to specify multiple labels in <code>FindInAssets</code></li>
+</ul>
+<h3 id="fixes_12">Fixes</h3>
+<ul>
+<li>Fixed some issues with validating existing objects in <code>FindInAssets</code>.</li>
+</ul>
+<h2 id="101-rc1">1.0.1-rc.1</h2>
+<h3 id="new_12">New</h3>
+<ul>
+<li>All bulk syncing operations (i.e. syncing entire scenes or all prefabs) now display a progress bar,
+  provided that the bulk operation takes a noticeable time to complete.</li>
+</ul>
+<p>Note that syncing all project scenes or all build scenes will take longer than other cases
+because these operations need to also load and save scenes that are currently not loaded.</p>
+<h3 id="improvements_3">Improvements</h3>
+<ul>
+<li>Progress Bar information is now more accurate.</li>
+<li>Other minor internal improvements</li>
+</ul>
+<h3 id="fixes_13">Fixes</h3>
+<ul>
+<li>Syncing build scenes no longer syncs open scenes that aren't included in the build.</li>
+<li>Syncing all prefabs now only selects prefabs that are under the <code>Assets</code> folder.</li>
+</ul>
+<h2 id="100">1.0.0</h2>
+<p>First official release!</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="cheatsheet.html" class="btn btn-neutral float-left" title="Cheat Sheet"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="license.html" class="btn btn-neutral float-right" title="License">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="cheatsheet.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="license.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="js/copy-link.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

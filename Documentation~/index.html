@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="A Unity Editor Toolkit to automatically retrieve and validate references in MonoBehaviours" /><meta name="author" content="Zoodinger" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Auto-Reference Toolkit</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="css/custom.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Auto-Reference Toolkit";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="index.html" class="icon icon-home"> Auto-Reference Toolkit
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Auto-Reference Toolkit</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#installation-process">Installation Process</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#quick-links">Quick Links</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#key-features">Key Features</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#first-look">First look</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-it-works">How it works</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#built-in-main-getter-attributes">Built-in Main Getter Attributes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#built-in-filters">Built-in Filters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#additional-control-via-syncoptions">Additional Control via SyncOptions</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#sync-mode">Sync Mode</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#context-mode">Context Mode</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#after-sync-callbacks">After-sync callbacks</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#onaftersync-attribute">OnAfterSync Attribute</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sync-observer-objects">Sync observer objects</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#isyncobserver">ISyncObserver</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#notes-and-limitations">Notes and limitations</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#manually-triggering-syncing-on-isyncobserver-objects">Manually triggering syncing on ISyncObserver objects</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#set-up-and-configuration">Set-Up and Configuration</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#projectsettings">ProjectSettings</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#auto-reference-window">Auto-Reference Window</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#menus">Menus</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#preferences">Preferences</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#integrated-inspector">Integrated Inspector</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#third-party-integrations">Third-party Integrations</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sync-references-on-demand">Sync References On Demand</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#custom-editors">Custom Editors</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#custom-editors-using-the-ui-toolkit">Custom Editors Using the UI Toolkit</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#extending-the-autoreference-toolkit">Extending the AutoReference Toolkit</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#creating-your-own-autoreferenceattribute">Creating your own AutoReferenceAttribute</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#creating-your-own-autoreferencefilter-or-autoreferencevalidator">Creating your own AutoReferenceFilter or AutoReferenceValidator</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#callbackmethodinfo">CallbackMethodInfo</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#filtering-guarantees">Filtering Guarantees</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#additional-notes">Additional Notes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#advanced-information-and-examples">Advanced Information and Examples</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#main-getter-attributes">Main Getter Attributes</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#getinchildren">GetInChildren</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#getinparent">GetInParent</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#getinsiblings">GetInSiblings</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#findinparent">FindInParent</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#findinassets">FindInAssets</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#filtervalidation-attributes">Filter/Validation attributes</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#containsinchildren">ContainsInChildren</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#containsinparent">ContainsInParent</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#ignoreself">IgnoreSelf</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#ignorenested">IgnoreNested</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#layer-and-tag">Layer and Tag</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#name">Name</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#sort">Sort</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#sortby">SortBy</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#filterby">FilterBy</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#take">Take</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#takelast">TakeLast</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#takewhile">TakeWhile</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#misc">Misc</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#method-callback-requirements">Method Callback Requirements</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#filter-priority-order">Filter Priority Order</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#overriding-priority">Overriding Priority</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#isyncobserver-explicit-implementation-resolution">ISyncObserver explicit implementation resolution</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="cheatsheet.html">Cheat Sheet</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="license.html">License</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Auto-Reference Toolkit</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Auto-Reference Toolkit</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="auto-reference-toolkit">Auto-Reference Toolkit</h1>
+<p>The Auto-Reference Toolkit is a Unity editor extension designed to simplify the process of retrieving, validating,
+and assigning references to assets or components during edit time.</p>
+<h2 id="installation-process">Installation Process</h2>
+<p>Install this package through the Unity Package Manager:</p>
+<ol>
+<li>Open the Package Manager window by going through <strong>Window ▸ Package Manager</strong></li>
+<li>Click the <strong>+</strong> sign in the top-left corner and select <strong>Add package from git URL...</strong></li>
+<li>
+<p>Enter the repository URL:
+   <br><code>https://gitlab.com/zoodinger/autoreference.git</code>
+   <button class="copy-link" data-copy="https://gitlab.com/zoodinger/autoreference.git">Copy</button>
+   <br>To install and stay on a specific version, append the version tag:
+   <br><code>https://gitlab.com/zoodinger/autoreference.git#v2.3.1</code>
+   <button class="copy-link" data-copy="https://gitlab.com/zoodinger/autoreference.git#v2.3.1">Copy</button>
+   <!-- force HTML block to remove margin --></p>
+</li>
+<li>
+<p>Click <strong>Add</strong> to complete the installation.</p>
+</li>
+</ol>
+<h2 id="quick-links">Quick Links</h2>
+<p>For a quick list of the most important features, refer to the <a href="cheatsheet.html">Cheat Sheet</a>.</p>
+<p>If you're just getting started and want to avoid reading the entire documentation, these two sections will be the most
+useful:</p>
+<ul>
+<li><a href="#built-in-main-getter-attributes">Built-In Getter Attributes</a></li>
+<li><a href="#built-in-filters">Built-In Filters</a></li>
+</ul>
+<p>For some more advanced usage and configuration, these two sections will also be beneficial:</p>
+<ul>
+<li><a href="#after-sync-callbacks">After-Sync Callbacks</a></li>
+<li><a href="#set-up-and-configuration">Set-Up And Configuration</a></li>
+</ul>
+<h2 id="overview">Overview</h2>
+<p>Game development in Unity often requires using references to components or assets. The components may be placed on the
+same <code>GameObject</code> as your script or relative to its hierarchy (e.g., a parent <code>Canvas</code>). Or sometimes they can exist
+anywhere in the scene (e.g., a <code>Camera</code>). And sometimes you need references to specific assets, such as a <code>Material</code> or
+<code>Shader</code>.</p>
+<p>Typically, developers have two ways to achieve this:</p>
+<ul>
+<li>By using the equivalent <code>Get*</code> or <code>Find*</code> methods such as <code>GetComponent</code>, <code>GetComponentInParent</code>, etc.
+  This only includes components in the scene.</li>
+<li>By dragging the appropriate references to the inspector. When the relevant built-in Unity functions are not enough,
+  this might be the only approach.</li>
+</ul>
+<p>Both these methods have their drawbacks — they either incur a runtime overhead and require verbose code, or are
+time-consuming to set up.</p>
+<h3 id="key-features">Key Features</h3>
+<ul>
+<li><strong>Zero runtime overhead:</strong> Everything is performed in the editor.</li>
+<li><strong>Precise referencing:</strong> An assortment of filters allows you to get the specific objects you need.</li>
+<li><strong>Extensibilty:</strong> You can write your own attributes and filters.</li>
+<li><strong>Versatility:</strong> The toolkit provides various ways to get sync references automatically that can be optionally
+  disabled via the Project Settings.</li>
+<li><strong>Built-in Integrations:</strong> The toolkit works with all inspectors but supports additional out-of-the-box integration
+  with the Odin Inspector, Tri Inspector, and Unity Editor Toolbox. Manual integration with other inspectors can also
+  be done, but the user will have to implement them.</li>
+<li><strong>Usage validation:</strong> The toolkit will provide errors or warnings for invalid usage of getter or filter attributes.</li>
+<li>Works with Arrays and generic Lists just as easily as plain fields.</li>
+</ul>
+<h3 id="first-look">First look</h3>
+<p>Auto-Reference is a toolkit that instructs the Unity editor to quickly get these references by using a range of
+attributes.</p>
+<p>Here are some examples:</p>
+<pre><code class="language-c#">using Teo.AutoReference;
+
+// ...
+
+public class MyBehaviour : MonoBehaviour {
+    [Get] public Image image; // Get a reference to an Image component on the same game object.
+    [GetInParent] public Canvas canvas; // Get a reference to a Canvas component in a parent.
+    [GetInChildren, FilterBy(nameof(FilterMethod))] MyScript script; // Get a MyScript through a custom filter method. 
+    [GetInParent, IgnoreSelf] public RectTransform rectTransform; // Get a reference to the parent's rect transform.
+    [GetInChildren, Layer(&quot;Walls&quot;)] public Collider[] walls; // Get colliders with Walls layer.
+    [FindInScene, Tag(&quot;MainCamera&quot;)] Camera mainCamera; // Get the camera tagged as MainCamera
+    [FindInScene, Tag(&quot;MainCamera&quot;, Exclude = true)] public Camera[] others; // Get cameras that aren't the main camera. 
+    [FindInAssets, Name(&quot;Custom/Test&quot;)] public Shader shader; // Get the shader with this name.
+    [GetInChildren, SortByDistance] public AScript closest; // Get the AScript placed on the closest GameObject.
+    [Get, SyncOptions(SyncMode.IfEmptyPermissive)] public Transform target; // Get the transform if unset but allow other values too.
+
+    // Filter method used in FilterBy
+    private bool FilterMethod(MyScript script) {
+        // ...    
+    }
+    // ...
+}
+</code></pre>
+<p>The references will be set in the editor before you use them in the rest of the script. Getting them in the <code>Awake()</code>
+or <code>Start()</code> methods is not required, and you don't need to drag them yourself!</p>
+<h3 id="how-it-works">How it works</h3>
+<p>The Auto-Reference toolkit is designed to be straightforward in its use. Depending on the attributes you've provided,
+the toolkit performs an operation for each field:</p>
+<ol>
+<li>Identifies serializable fields of type <code>T</code>, <code>T[]</code>, <code>List&lt;T&gt;</code>, where <code>T</code> is of type <code>UnityEngine.Object</code>.</li>
+<li>Retrieves references that satisfy the main attribute requirements.</li>
+<li>Validates all references with the filter attributes provided.</li>
+<li>Assign the field's value from the filtered references.</li>
+<li>Perform additional user-defined validations whenever applicable.</li>
+</ol>
+<p>Note that <code>UnityEngine.Object</code> is the base class for all objects Unity can reference, which includes components and
+assets.</p>
+<p>This process is called syncing auto-references.</p>
+<h2 id="usage">Usage</h2>
+<h3 id="built-in-main-getter-attributes">Built-in Main Getter Attributes</h3>
+<p>This toolkit offers these built-in getter attributes for reference retrieval and validation:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Used To Get</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Get</code></td>
+<td>Components</td>
+<td>Similar to <code>GetComponent[s]</code>.</td>
+</tr>
+<tr>
+<td><code>GetInChildren</code></td>
+<td>Components</td>
+<td>Similar to <code>GetComponent[s]InChildren</code> but also allows for max depth. See: <a href="#getinchildren">GetInChildren</a></td>
+</tr>
+<tr>
+<td><code>GetInParent</code></td>
+<td>Components</td>
+<td>Similar to <code>GetComponent[s]InParent</code> but also allows for max depth. See: <a href="#getinparent">GetInParent</a></td>
+</tr>
+<tr>
+<td><code>GetInSiblings</code></td>
+<td>Components</td>
+<td>Gets a reference attached to a sibling GameObject. See: <a href="#getinsiblings">GetInSiblings</a></td>
+</tr>
+<tr>
+<td><code>FindInScene</code></td>
+<td>Components</td>
+<td>Similar to <code>FindObject*</code> methods but only includes objects in the current scene.</td>
+</tr>
+<tr>
+<td><code>FindInAssets</code></td>
+<td>Objects</td>
+<td>Similar to <code>AssetDatabase.FindAssets</code>. See: <a href="#findinassets">FindInAssets</a></td>
+</tr>
+<tr>
+<td><code>FindInParent</code></td>
+<td>Components</td>
+<td>Find components that exist under a parent of a specific type (e.g. a Canvas). See: <a href="#findinparent">FindInParent</a></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Note:</strong> All Component-based attributes may be used on <code>GameObject</code> fields as well. The values will be retrieved
+as <code>Transform</code> references and then converted to <code>GameObject</code> and vice versa whenever required. This process happens
+automatically without user intervention.</p>
+</blockquote>
+<h3 id="built-in-filters">Built-in Filters</h3>
+<p>To correctly target and narrow down to the intended reference(s), the user can use several filters:</p>
+<table>
+<thead>
+<tr>
+<th>Filter</th>
+<th>Used On</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>TypeConstraint</code></td>
+<td>Objects</td>
+<td>Requires objects to have a specific subtype, such as scripts that implement an interface.</td>
+</tr>
+<tr>
+<td><code>ExactType</code></td>
+<td>Objects</td>
+<td>Requires objects to have the exact type as the field, i.e. rejects derived types.</td>
+</tr>
+<tr>
+<td><code>Contains</code></td>
+<td>Components</td>
+<td>Requires game objects to contain a component of a specific type.</td>
+</tr>
+<tr>
+<td><code>ContainsInChildren</code></td>
+<td>Components</td>
+<td>Requires game objects to contain a component of a specific type in a child. See: <a href="#containsinchildren">ContainsInChildren</a></td>
+</tr>
+<tr>
+<td><code>ContainsInParent</code></td>
+<td>Components</td>
+<td>Requires game objects to contain a component of a specific type in a parent. See: <a href="#containsinparent">ContainsInParent</a></td>
+</tr>
+<tr>
+<td><code>IgnoreSelf</code></td>
+<td>Components</td>
+<td>Ignore components placed on the same <code>GameObject</code> or optionally the component itself. See: <a href="#ignoreself">IgnoreSelf</a></td>
+</tr>
+<tr>
+<td><code>IgnoreInactive</code></td>
+<td>Components</td>
+<td>Ignore components placed in inactive objects.</td>
+</tr>
+<tr>
+<td><code>IgnoreDisabled</code></td>
+<td>Components</td>
+<td>Ignore disabled components (i.e., those unchecked in the inspector).</td>
+</tr>
+<tr>
+<td><code>Layer</code></td>
+<td>Components</td>
+<td>Targets objects that match any of the provided layers. See: <a href="#layer-and-tag">Layer and Tag</a></td>
+</tr>
+<tr>
+<td><code>Tag</code></td>
+<td>Components</td>
+<td>Targets objects that match any of the provided tags. See: <a href="#layer-and-tag">Layer and Tag</a></td>
+</tr>
+<tr>
+<td><code>Name</code></td>
+<td>Objects</td>
+<td>Targets objects that match any of the provided names. See: <a href="#name">Name</a></td>
+</tr>
+<tr>
+<td><code>FilterBy</code></td>
+<td>Objects</td>
+<td>Filter references according to a callback method. See: <a href="#filterby">FilterBy</a></td>
+</tr>
+<tr>
+<td><code>IgnoreNested</code></td>
+<td>Components</td>
+<td>Discard components whose transform is a child of the transform of any other component in the input. See: <a href="#ignorenested">IgnoreNested</a></td>
+</tr>
+<tr>
+<td><code>Unique</code></td>
+<td>Objects</td>
+<td>Remove duplicate values.</td>
+</tr>
+<tr>
+<td><code>SortByID</code></td>
+<td>Objects</td>
+<td>Order references by instance ID.</td>
+</tr>
+<tr>
+<td><code>SortByDistance</code></td>
+<td>Components</td>
+<td>Order references by their relative distance to the script that contains the field.</td>
+</tr>
+<tr>
+<td><code>SortByName</code></td>
+<td>Objects</td>
+<td>Order references by their name.</td>
+</tr>
+<tr>
+<td><code>Sort</code></td>
+<td>Objects</td>
+<td>Order <code>IComparable</code> or <code>IComparable&lt;Type&gt;</code> refernces. See: <a href="#sort">Sort</a></td>
+</tr>
+<tr>
+<td><code>SortBy</code></td>
+<td>Objects</td>
+<td>Sort by a method that either belongs to the script or another type. See: <a href="#sortby">SortBy</a> for more information.</td>
+</tr>
+<tr>
+<td><code>Reverse</code></td>
+<td>Objects</td>
+<td>Reverse the order - useful when combined with sorting.</td>
+</tr>
+<tr>
+<td><code>Take</code></td>
+<td>Objects</td>
+<td>Take the first X elements based on a value or a callback method. See: <a href="#take">Take</a></td>
+</tr>
+<tr>
+<td><code>TakeLast</code></td>
+<td>Objects</td>
+<td>Take the last X elements based on a value or a callback method. See: <a href="#takelast">TakeLast</a></td>
+</tr>
+<tr>
+<td><code>TakeWhile</code></td>
+<td>Objects</td>
+<td>Take elements until a condition returns false. See: <a href="#takewhile">TakeWhile</a></td>
+</tr>
+</tbody>
+</table>
+<p>Like the main getter attributes, component-based filters may be used with <code>GameObject</code> fields as well. The toolkit will
+automatically convert references from <code>Transform</code> to <code>GameObject</code> and vice versa whenever required by the filter.</p>
+<p>Filters can be provided without a getter main attribute if the user wants to simply validate existing fields.</p>
+<blockquote>
+<p><strong>Note:</strong> The C# Language specification does <strong>not</strong> guarantee that the order attributes are placed in is respected.
+Filters are instead sorted based on a default priority, which can be overriden by the user.
+<a href="#filter-priority-order">See this section</a> for more information.</p>
+</blockquote>
+<h3 id="additional-control-via-syncoptions">Additional Control via SyncOptions</h3>
+<p>The user can provide an optional <code>SyncOptions</code> attribute to further control when the editor should attempt to sync
+references. The options the user can provide:</p>
+<h4 id="sync-mode">Sync Mode</h4>
+<ul>
+<li><code>ValidateOnly</code>: Validates the reference(s) without automatic retrieval. This is useful for ensuring field constraints
+  without retrieving a reference, for example, ensuring that the set value is always a child of the script.</li>
+<li><code>IfEmpty</code>: Only retrieve and validate references if there is no existing value. All values are validated.</li>
+<li><code>IfEmptyPermissive</code>: Only retrieve and validate references if there is no existing value, but skip validation if
+  the value is not empty. Useful for getting a "default" value while still allowing others.</li>
+<li><code>Always</code>: Always retrieve and validate the reference(s). Any modification the user makes in the inspector will be
+  overwritten when syncing occurs.</li>
+<li><code>Expanded</code>: Always retrieve nad validate references but allow additional values that pass validation.</li>
+<li><code>ExpandedPermissive</code>: Always retrieve and validate references but allow <em>any</em> additional values without validation.</li>
+<li><code>Default</code>: This mode behaves differently based on whether the field is non-array/list or an array/list:<ul>
+<li>For single fields, it behaves like <code>IfEmpty</code></li>
+<li>For arrays/lists it behaves like <code>Always</code>.</li>
+</ul>
+</li>
+</ul>
+<p>Example:</p>
+<pre><code class="language-c#">// Does not automatically set the value of image but only allows Images placed in child components
+[GetInChildren, SyncOptions(SyncMode.ValidateOnly)] public Image image;
+</code></pre>
+<h4 id="context-mode">Context Mode</h4>
+<p>The user can also provide a <code>ContextMode</code> if they want scripts to only synchronize for scene objects, prefabs, or both:</p>
+<ul>
+<li><code>Scene</code>: Only synchronize the field when editing its game object directly in the scene. Note that this includes
+  scripts on prefabs that are placed in the scene but not while editing the prefabs.</li>
+<li><code>Prefab</code>: Only synchronize the field when it's part of a prefab that the user opened to edit directly. This can be
+  useful when a prefab depends on a very specific component already in the prefab, and the user doesn't want any other
+  components placed in the scene to interfere with the syncing process.</li>
+<li><code>Default</code>: Always synchronize (equal to <code>Scene | Prefab</code>)</li>
+</ul>
+<p>Example:</p>
+<pre><code class="language-c#">// Only get references while editing the prefab.
+[GetInChildren, SyncOptions(ContextMode.Prefab)] public Image[] images1;
+
+// Only get references if the object is in the scene - do not get references while in prefab editing mode.
+[GetInChildren, SyncOptions(ContextMode.Scene)] public Image[] images2;
+</code></pre>
+<h3 id="after-sync-callbacks">After-sync callbacks</h3>
+<p>There are times when the user would need to do additional filtering, validation, or any other operations after the
+references sync, particularly when the logic depends on multiple references or deals with non-Unity objects.</p>
+<p>After-sync callbacks run automatically after all references are synced in the current script. Note that in the case
+of using the On-Inspect integration, this happens after <code>OnValidate</code>.</p>
+<h4 id="onaftersync-attribute">OnAfterSync Attribute</h4>
+<p>This attribute can be applied to a method to make it run automatically after syncing.</p>
+<p>Example:</p>
+<pre><code class="language-c#">using Teo.AutoReference;
+
+public class ReferenceScript : MonoBehaviour {
+    public int value;
+}
+
+public class ReferenceScriptManager: MonoBehaviour {
+    public int minimumValue;    
+}
+
+public class Example : MonoBehaviour {
+    [SerializeField, FindInScene] private ReferenceScriptManager manager;
+    [SerializeField, GetInChildren] private ReferenceScript[] references;    
+
+    // This will be called after all references have synced
+    [OnAfterSync]
+    public void Callback() {
+        // Further filter references based on some custom code.
+        references = references.Where(r =&gt; r.value &gt;= manager.minimumValue).ToArray();
+    }
+}
+</code></pre>
+<p>This attribute can also be applied on the class-level, but in this case a name must be provided. Example:</p>
+<pre><code class="language-c#">[OnAfterSync(nameof(SyncCallback))]
+public class Example2 : MonoBehaviour {
+    private void SyncCallback() {
+        // ...
+    }
+}
+</code></pre>
+<p>When the attribute is placed on a method, the provided method name (if any) is ignored.</p>
+<blockquote>
+<p><strong>Note:</strong> Like other attributes C# does not guarantee the execution order of methods marked with the <code>OnAfterSync</code>
+attribute, so keep this under consideration. However, all base-type callbacks are guaranteed to run before any
+derived-type callbacks.</p>
+</blockquote>
+<h3 id="sync-observer-objects">Sync observer objects</h3>
+<p>As of version <code>2.1.0</code>, support for sync callbacks for non-Unity objects is added.</p>
+<h4 id="isyncobserver">ISyncObserver</h4>
+<p>A custom type can implement the <code>ISyncObserver</code> interface to receive callbacks when references are synced.</p>
+<pre><code class="language-c#">using Teo.AutoReference;
+using Teo.AutoReference.System;
+
+public struct SyncableData : ISyncObserver {
+    public int value;
+    void ISyncObserver.OnSync(MonoBehaviour target) {
+        value = target.name.Length;
+    }
+}
+
+public class SampleScript : MonoBehaviour {
+    public SyncableData data; // data.value will get the value 12
+}
+
+</code></pre>
+<h4 id="notes-and-limitations">Notes and limitations</h4>
+<p>The toolkit will scan a script for all serializable types that implement the <code>ISyncObserver</code> interface and register
+their callbacks to run when that script is synced. However, please note that:</p>
+<ul>
+<li>This is not recursive. If a type implements <code>ISyncObserver</code> and has its own fields of types that implement
+  <code>ISyncObserver</code>, the callbacks will not be registered for those fields.</li>
+<li>On a similar note, lists or arrays of types implementing <code>ISyncObserver</code> will not have any of their elements synced.</li>
+<li>Unity objects <em>do not</em> support the <code>ISyncObserver</code> interface. If a type implements <code>ISyncObserver</code> and is a Unity
+  object, the toolkit will log a warning and simply ignore it.</li>
+</ul>
+<p>The suggested solution is to call the syncing explicitly for those fields.</p>
+<h4 id="manually-triggering-syncing-on-isyncobserver-objects">Manually triggering syncing on ISyncObserver objects</h4>
+<p>The toolkit provides the following methods, where <code>T</code> is <code>ISyncObserver</code>:</p>
+<ul>
+<li><code>AutoReference.SyncData&lt;T&gt;(MonoBehaviour target, T observer)</code>: Used <em>only</em> on class objects</li>
+<li><code>AutoReference.SyncData&lt;T&gt;(MonoBehaviour target, ref T observer)</code>: Used <em>only</em> on struct objects</li>
+<li><code>AutoReference.SyncData&lt;T&gt;(MonoBehaviour target, IList&lt;T&gt; list)</code>: Used on arrays and lists to sync
+  all their elements.</li>
+<li><code>AutoReference.SyncData&lt;T&gt;(MonoBehaviour target, IList&lt;T&gt; list, Predicate&lt;T&gt; predicate)</code>: Used
+  on arrays and lists to sync only the elements that match the predicate.</li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> these methods are preferred over manually calling the <code>OnSync</code> method on the object because they will
+invoke <em>all</em> appropriate callbacks in the inheritence hierarchy.
+<a href="#isyncobserver-explicit-implementation-resolution">See here</a> for more information.</p>
+</blockquote>
+<p>Example usage:</p>
+<pre><code class="language-c#">using Teo.AutoReference;
+using Teo.AutoReference.System;
+
+public struct InnerData : ISyncObserver {
+    public int value;
+    void ISyncObserver.OnSync(MonoBehaviour target) {
+        value = target.name.Length * 2;
+    }
+}
+
+public struct SyncableData : ISyncObserver {
+    public int value;
+    public InnerData innerData; // This field will not be synced automatically.
+
+    void ISyncObserver.OnSync(MonoBehaviour target) {
+        value = target.name.Length;
+        AutoReference.SyncData(target, ref innerData); // This is required to sync the innerData field.
+    }
+}
+
+public class SampleScript : MonoBehaviour {
+    public SyncableData[] dataArray; // This will NOT be synced automatically.
+    public SyncableData data; // This WILL be synced automatically
+
+    [OnAfterSync] // Refer to the After-sync callbacks section for more information.
+    public void Callback() {
+        AutoReference.SyncData(this, dataArray); // This will sync every element in the data array.
+    }
+}
+</code></pre>
+<h2 id="set-up-and-configuration">Set-Up and Configuration</h2>
+<h3 id="projectsettings">ProjectSettings</h3>
+<p>By default, the toolkit syncs references:</p>
+<ul>
+<li>In active scene(s) when the assembly is reloaded (e.g., when the code recompiles)</li>
+<li>Any active scene before it is saved</li>
+<li>When the inspector is enabled/disabled or a change is made on the inspector.</li>
+<li>In build scenes when the project is built</li>
+</ul>
+<p>This behavior can be fine-tuned in <strong>Project Settings ▸ Auto-Reference</strong>:</p>
+<p><img alt="" src="resources/project-settings.png" /></p>
+<p>The inspector support only works for the default inspector. For custom inspectors you can refer to
+<a href="#custom-editors">this section</a> for more information.</p>
+<p>When a supported third party inspector is detected, it shows up as an option:</p>
+<p><img alt="" src="resources/tri-inspector.png" /></p>
+<blockquote>
+<p><strong>Note:</strong> If a third party inspector is removed for whatever reason, the user will have to manually disable
+integration
+for the code to re-compile. Otherwise, the custom integration will throw syntax errors due to now missing references.</p>
+</blockquote>
+<h3 id="auto-reference-window">Auto-Reference Window</h3>
+<p>This window shows all usage issues (errors and warnings) that are supported by getter and filter attributes.</p>
+<p><img alt="" src="resources/window.png" /></p>
+<p>Usage issues happen when the user uses any of the getter or filter attributes inappropriately, such as applying them
+on invalid fields or passing invalid parameters to them. They don't include any errors that may happen <em>during</em>
+syncing, such as exceptions thrown from callback methods that are otherwise correctly defined.</p>
+<p>It scans all MonoBehaviour-derived scripts under the Assets folder for any issues. Double-clicking on an issue will
+open the file that contains it in the custom editor defined in your Unity preferences.</p>
+<p>The toolbar at the top allows the user to sync entire scenes or prefabs:</p>
+<ul>
+<li><strong>Open Scenes</strong>: Sync all scenes that are currently open, even if they're unloaded.</li>
+<li><strong>All Scenes</strong>: Sync all scenes (*.unity extension) placed under the Asset folders, including open scenes.</li>
+<li><strong>Build Scenes</strong>: Sync all scenes that are included and enabled in the build settings.</li>
+<li><strong>Prefabs</strong>: Sync all prefabs placed in Assets.</li>
+</ul>
+<p>Note that you can change some display settings for the window by right-clicking the header area:
+<img alt="" src="resources/window-settings.png" /></p>
+<h3 id="menus">Menus</h3>
+<p>The following operations are also available to the user:</p>
+<ul>
+<li><strong>Auto-Reference menu:</strong> Accessible via <strong>Tools ▸ AutoReference</strong>:</li>
+</ul>
+<p><img alt="" src="resources/menu.png" /></p>
+<p>The sync options here are identical to the ones given through the window.
+- <strong>MonoBehaviour context menu:</strong> Accessible by right-clicking the script in the inspector and selecting
+  <strong>Sync Auto-References</strong>:</p>
+<p><img alt="" src="resources/context-menu.png" /></p>
+<p>This will apply syncing on the current script.</p>
+<h3 id="preferences">Preferences</h3>
+<p>Additional configuration can be found in <strong>Preferences ▸ Auto-Reference</strong></p>
+<p><img alt="" src="resources/preferences.png" /></p>
+<p>The available logging levels:</p>
+<ul>
+<li><strong>Off</strong>: Never log any issues</li>
+<li><strong>Compact</strong>: Log only a summary</li>
+<li><strong>Expanded</strong>: Log every usage warning / error</li>
+</ul>
+<h3 id="integrated-inspector">Integrated Inspector</h3>
+<p>The Auto-Reference toolkit provides a modified version of the default inspector, which syncs references on the current
+game object. For classes with custom editors the user is required to inherit their editor from <code>AutoReferenceEditor</code> or
+add support via other means. See <a href="#sync-references-on-demand">Sync References On Demand</a> for more information.</p>
+<p>When the current inspector supports syncing <em>and</em> the script it targets has auto-reference information, the Sync Toggle
+Button is displayed:</p>
+<p><img alt="" src="resources/sync-header.png" /></p>
+<p>Unchecking this button <em>temporarily</em> disables syncing on the inspector. This is useful when the user wants to manually
+make changes without triggering any possibly disruptive validation. E.g., using <code>Unique</code> on an array or list will
+prevent the user from adding new items with the <code>+</code> button, because by default Unity duplicates the last item.</p>
+<p>Adding this button is possible in custom editors as well.</p>
+<h4 id="third-party-integrations">Third-party Integrations</h4>
+<p>The toolkit also adds automatic integration with <code>Odin</code>, <code>Tri Inspector</code>, and <code>Unity Editor Toolbox</code> which enables this
+feature for all <code>MonoBehaviour</code> inspectors.</p>
+<p>For <em>custom</em> <code>Odin</code> and <code>Tri Inspector</code> editors this feature will be inherited and no additional effort is required.
+However, for custom <code>Unity Editor Toolbox</code> editors, the user will have to inherit from the <code>AutoToolboxEditor</code> class if
+they wish to keep this feature enabled:</p>
+<pre><code class="language-c#">using Teo.AutoReference.Editor;
+
+[CustomEditor(typeof(MyScript))]
+public class MyScriptEditor : AutoToolboxEditor {
+    protected override void DrawCustomAutoInspector() {
+        // ...
+    }    
+}
+
+</code></pre>
+<p>This class is only available if <code>Unity Editor Toolbox</code> is installed in the project.</p>
+<h2 id="sync-references-on-demand">Sync References On Demand</h2>
+<p>If you find the above solutions not enough, you can always sync auto-references on demand. Use this method contained
+in the <code>AutoReference</code> class:</p>
+<pre><code class="language-c#">using Teo.AutoReference;
+
+//..
+
+AutoReference.Sync(behaviour);
+</code></pre>
+<p>A good place to do this is in the <code>OnValidate</code> method, which gets called if anything changes in the inspector:</p>
+<pre><code class="language-c#">using Teo.AutoReference;
+
+// ...
+
+public class CustomScript : MonoBehaviour {
+    // NOTE: This is not required if CustomScript uses the integrated inspector or another editor that adds support for
+    // syncing, otherwise syncing will be called multiple times.
+
+    // Unity calls this when the script is being created, its code changes, or its values change in the inspector.
+    private void OnValidate() {
+        AutoReference.Sync(this);
+    }
+
+    // Not required but nice to have.
+    private void Reset() {
+        AutoReference.Sync(this);
+    }
+
+    // ... Rest of your code
+}
+</code></pre>
+<p>In some Unity editor contexts, changing a component’s values doesn’t automatically mark it as modified. To ensure the
+changes are recorded, use <code>EditorGUIUtility.SetDirty(target)</code>. Alternatively, call <code>AutoReference.SetDirty(target)</code>, a
+safe wrapper that includes editor-only preprocessor directives. It can be used in final code and will be silently
+ignored in builds.</p>
+<p>Also, please remember that by design, syncing references only works in the Editor and only when the game is not running.</p>
+<p>See <a href="#additional-notes">additional notes</a>.</p>
+<h3 id="custom-editors">Custom Editors</h3>
+<p>If your script requires a custom editor, and you want to sync auto-references, you can modify it like this:</p>
+<pre><code class="language-c#">using Teo.AutoReference;
+using Teo.AutoReference.Configuration;
+using Teo.AutoReference.System;
+using Teo.AutoReference.Editor;
+
+[CustomEditor(typeof(CustomScript))]
+public class CustomScriptEditor: Editor {
+  // Enable button by default
+  private bool _isSyncingEnabled = true;
+
+  public override void OnInspectorGUI() {
+      serializedObject.Update();
+      EditorGUI.BeginChangeCheck();
+
+      // Optional: Draw the script header with the Sync Toggle Button to allow the user to temporarily turn syncing off
+      _isSyncingEnabled = AutoReferenceEditor.DrawSyncHeader(target as MonoBehaviour, _isSyncingEnabled);
+
+      // Rest of the editor goes here
+
+      // NOTE: We use the single | instead of the double || here. This is because we want to check BOTH
+      //       the left and right operands and avoid short-circuiting. E.g. If EndChangeCheck() returns true,
+      //       the properties will still be applied, which wouldn't happen with the double ||
+      var changesMade = EditorGUI.EndChangeCheck() | serializedObject.ApplyModifiedProperties();
+
+      // Only sync if changes are made, and if the toggle button is enabled
+      if (changesMade &amp;&amp; _isSyncingEnabled) {
+          AutoReference.Sync(target as MonoBehaviour);
+      }
+  }
+
+    // Optional but recommended: Syncs the object when the inspector appears
+    private void OnEnable() {
+        // Optional: Use the &quot;On editor select&quot; logging level as defined in Preferences &gt; Auto-Reference
+        using (LogContext.MakeContext(SyncPreferences.EditorSelectLogLevel)) {
+            AutoReference.Sync(target as MonoBehaviour);
+        }
+    }
+
+   // Optional but recommended: Syncs the object after the inspector disappears
+    private void OnDisable() {
+        AutoReference.Sync(target as MonoBehaviour);
+    }
+}
+</code></pre>
+<p>Alternatively, the user can inherit from the <code>AutoReferenceEditor</code> class, which already emulates the above behaviou.</p>
+<pre><code class="language-c#">using Teo.AutoReference;
+using Teo.AutoReference.Editor;
+
+[CustomEditor(typeof(CustomScript))]
+public class CustomScriptEditor : AutoReferenceEditor {
+    protected override void DrawCustomInspector() {
+        base.DrawCustomInspector(); // if you want to draw properties normally
+
+        // Additional properties
+    }
+}
+</code></pre>
+<blockquote>
+<p><strong>Note:</strong> <code>AutoReferenceEditor</code> calls <code>Update()</code> and <code>ApplyModifiedProperties()</code> on the <code>serializedObject</code> for
+properties changed within <code>DrawCustomInspector()</code></p>
+</blockquote>
+<p>The user is encouraged to use whichever method they want to get references that they feel is the least intrusive.</p>
+<h3 id="custom-editors-using-the-ui-toolkit">Custom Editors Using the UI Toolkit</h3>
+<p>Unfortunately, this is not currently supported out of the box. However, it's possible to add support for it manually.</p>
+<h2 id="extending-the-autoreference-toolkit">Extending the AutoReference Toolkit</h2>
+<p>You can create custom functionality by extending the following main attributes:</p>
+<ul>
+<li><code>AutoReferenceAttribute</code></li>
+<li><code>AutoReferenceFilter</code></li>
+<li><code>AutoReferenceValidator</code></li>
+</ul>
+<h3 id="creating-your-own-autoreferenceattribute">Creating your own AutoReferenceAttribute</h3>
+<p>This sample implementation of a <code>GetAttribute</code> can serve as a clear example:</p>
+<pre><code class="language-c#">using Teo.AutoReference.System; // For AutoReferenceAttribute
+
+// Not required but highly recommended, this limits the attribute to be used only on fields 
+[AttributeUsage(AttributeTargets.Field)]
+// Not required but highly recommended, strip this attribute from builds
+[Conditional(&quot;UNITY_EDITOR&quot;)]
+public class GetAttribute : AutoReferenceAttribute {
+    // Constraint this attribute to be used only on fields of Component-derived types.
+    // It will provide an error and skip syncing altogether if it's placed on the wrong field.
+    // Note that Component is a special case that is also compatible with GameObject.
+    protected override TypeConstraint =&gt; typeof(Component);
+
+    // Primary functionality: Get the components
+    protected override IEnumerable&lt;Object&gt; GetObjects() {
+        return Behaviour.GetComponents(Type);
+    }
+
+    // Validate existing references. Never used in IfEmptyPermissive or Always sync modes.
+    protected override IEnumerable&lt;Object&gt; ValidateObjects(IEnumerable&lt;Object&gt; objects) {
+        return objects.Where(o =&gt; ((Component)o).transform == Behaviour.transform);
+    }
+
+    // Note: This is provided as an example and is not required if the result is just Ok
+    protected override ValidationResult OnInitialize() {
+        // Use ValidationResult.Error(&quot;Error message&quot;) for errors
+        // Use ValidationResult.Warning(&quot;Warning message&quot;) for warnings
+        return ValidationResult.Ok; 
+    }
+}
+</code></pre>
+<h3 id="creating-your-own-autoreferencefilter-or-autoreferencevalidator">Creating your own AutoReferenceFilter or AutoReferenceValidator</h3>
+<p>To illustrate, let's look at a sample implementation of <code>SortByDistance:</code></p>
+<pre><code class="language-c#">using Teo.AutoReference.System; // For AutoReferenceFilterAttribute
+
+// Not required but highly recommended, this limits the attribute to be used only on fields 
+[AttributeUsage(AttributeTargets.Field)]
+// Not required but highly recommended, strip this attribute from builds
+[Conditional(&quot;UNITY_EDITOR&quot;)]
+public class SortByDistanceAttribute : AutoReferenceFilterAttribute {
+    // Priority when applying filters - default is FilterOrder.Normal = 0
+    protected override int PriorityOrder =&gt; FilterOrder.Sort;
+
+    // Constraint this attribute to be used only on fields of Component-derived types.
+    // It will provide an error and skip this filter if it's placed on the wrong field, but syncing will still happen.
+    // Note that Component is a special case that is also compatible with GameObject.
+    protected override TypeConstraint =&gt; typeof(Component);
+
+    // Primary functionality: apply a filter and return an enumerable with filtered objects.
+    public override IEnumerable&lt;Object&gt; Filter(FieldContext context, IEnumerable&lt;Object&gt; values) {
+            var behaviour = context.Behaviour;
+            return values.OrderBy(o =&gt; {
+                    var component = (Component)o;
+                    return Vector3.Distance(behaviour.transform.position, component.transform.position);
+                }
+            );
+    }
+
+    // Note 1: This is provided as an example and is not required if the result is just Ok
+    // Note 2: In this method context.Behaviour is null. Use context.BehaviourType if checking its type is required.
+    protected override ValidationResult OnIntialize(in FieldContext context) {
+        // Use ValidationResult.Error(&quot;Error message&quot;) for errors
+        // Use ValidationResult.Warning(&quot;Warning message&quot;) for warnings
+        return ValidationResult.Ok;
+    }
+}
+</code></pre>
+<p>There is a simplified derived class called <code>AutoReferenceValidator</code> that you can use instead of <code>AutoReferenceFilter</code>,
+which filters objects based on a condition. Here is the implementation of the <code>IgnoreSelfAttribute</code> as an example:</p>
+<pre><code class="language-c#">using Teo.AutoReference.System; // For AutoValidatorAttribute
+
+// Not required but highly recommended, this limits the attribute to be used only on fields 
+[AttributeUsage(AttributeTargets.Field)]
+// Not required but highly recommended, strip this attribute from builds
+[Conditional(&quot;UNITY_EDITOR&quot;)]
+public class IgnoreSelfAttribute : AutoReferenceValidatorAttribute {
+    // Priority when applying filters - default is FilterOrder.Normal = 0
+    protected override int PriorityOrder =&gt; FilterOrder.PreFilter;
+
+    // Constraint this attribute to be used only on fields of Component-derived types.
+    // It will provide an error and skip this filter if it's placed on the wrong field, but syncing will still happen.
+    // Note that Component is a special case that is also compatible with GameObject.
+    protected override TypeConstraint =&gt; typeof(Component);
+
+    // An AutoReferenceValidator derives from AutoReferenceFilter.
+    // It keeps all Objects that return true in the Validate method and discards those that return false.
+    protected override bool Validate(in FieldContext context, Object obj) {
+        return context.Behaviour.transform != ((Component)value).transform;
+    }
+
+    // Note 1: This is provided as an example and is not required if the result is just Ok
+    // Note 2: In this method context.Behaviour is null. Use context.BehaviourType if checking its type is required.
+    protected override ValidationResult OnInitialize(in FieldContext context) {
+        // Use ValidationResult.Error(&quot;Error message&quot;) for errors
+        // Use ValidationResult.Warning(&quot;Warning message&quot;) for warnings
+        return ValidationResult.Ok;
+    }
+}
+</code></pre>
+<p>Note the property <code>PriorityOrder</code>. See <a href="#filter-priority-order">this section</a> for more information.</p>
+<h3 id="callbackmethodinfo">CallbackMethodInfo</h3>
+<p>This is a convenience struct used to grab callback methods via reflection. This sample implementation of <code>FilterBy</code>
+can show how it's used:</p>
+<pre><code class="language-c#">[Conditional(&quot;UNITY_EDITOR&quot;)]
+[AttributeUsage(AttributeTargets.Field, AllowMultiple = true)]
+public class FilterByAttribute : AutoReferenceFilterAttribute {
+    private readonly string _methodName;
+    private readonly Type _caller;
+    private CallbackMethodInfo _callback;
+
+    public FilterByAttribute(string methodName) {
+        _caller = null;
+        _methodName = methodName;
+    }
+
+    public FilterByAttribute(Type caller, string methodName) {
+        _caller = caller;
+        _methodName = methodName;
+    }
+
+    protected override int PriorityOrder =&gt; FilterOrder.Filter;
+
+    protected override ValidationResult OnInitialize(in FieldContext context) {
+        _callback = CallbackMethodInfo.Create(
+            context,
+            _caller, // Optional - if null or not provided the caller is the MonoBehaviour that contains the field.  
+            _methodName,
+            typeof(bool), // Return type.
+            context.Type // All argument types must go here, either as additional arguments or an array of types.
+        );
+
+        return _callback.Result;
+    }
+
+    public override IEnumerable&lt;Object&gt; Filter(FieldContext context, IEnumerable&lt;Object&gt; values) {
+        return values.Where(v =&gt; _callback.Invoke&lt;bool&gt;(context, v));
+    }
+}
+</code></pre>
+<h3 id="filtering-guarantees">Filtering Guarantees</h3>
+<p>The toolkit handles implicit conversions between <code>Transform</code> and <code>GameObject</code> and vice versa when all these criteria
+are met:</p>
+<ul>
+<li>The <code>TypeConstraint</code> of the <em>main</em> attribute is either a <code>Component</code>, a base class of <code>Component</code> (i.e. <code>Object</code>), or
+  <code>GameObject</code>, but <strong>not</strong> a <code>Component</code>-derived type.</li>
+<li>The <code>TypeConstraint</code> of the filter is <code>Component</code>, but <strong>not</strong> a <code>Component</code>-derived type.</li>
+<li>The underlying field type is <code>GameObject</code>.</li>
+</ul>
+<p>When writing your own Filter/Validator, you have the following guarantees over the input:</p>
+<ul>
+<li>No <code>null</code> values.</li>
+<li>Valid values, i.e. no mismatched references.</li>
+<li>They're provided in the order that will be assigned in the field, assuming a later filter doesn't change that.</li>
+<li>The filter will be skipped completely if the requirements of the filter are not met, so you can safely assume that
+  all input values are assignable to the <code>TypeConstraint</code> of the filter.</li>
+</ul>
+<p>In turn, it's a good idea for <em>you</em> to guarantee the following to avoid any potential headaches:</p>
+<ul>
+<li>Don't add any new values to the input, and don't convert the values to a type that is incompatible to the input.</li>
+<li>If there's a chance the filter might be used incorrectly, deal with it in <code>OnInitialize</code> and return an error.</li>
+<li>Use the appropriate <code>PriorityOrder</code> if the order of execution matters.</li>
+<li>Use the correct <code>TypeConstraint</code>.</li>
+<li>Avoid using a type constraint of <code>GameObject</code>. Use <code>Component</code> instead and get the <code>GameObject</code> through there.</li>
+</ul>
+<h2 id="additional-notes">Additional Notes</h2>
+<p>Here are some additional notes you might need to know:</p>
+<ul>
+<li>Due to some editor-only features, syncing doesn't work in builds and is therefore explicitly disabled in the editor
+  play mode to prevent any potential confusion. This means <code>GameObject</code>s or <code>MonoBehaviour</code>s created on runtime will
+  not sync any references. Instead, they'll just copy any references from their prefab or source object, as they
+  would normally.</li>
+<li>Though there are many validation checks for individual invalid usages, certain combinations of filters and attributes
+  (such as <code>[Get]</code> and <code>[IgnoreSelf]</code>) are fundamentally incompatible. They will always fail to get any references
+  without providing any errors or warnings.</li>
+<li>When fields that are not an array or list need to retrieve and set references, the toolkit identifies all matches and
+  selects the first one. So, sorting filters will still work, and the field will receive the first value that results
+  from the sorting.</li>
+<li>By default, all attributes return both active and inactive objects. To ignore inactive objects, specify this
+  requirement explicitly by adding the <code>IgnoreInactive</code> filter. This behavior contrasts with Unity, which ignores
+  inactive objects by default.</li>
+<li>This toolkit depends on Unity API that is not thread safe, and so the toolkit itself was not designed with thread
+  safety in mind.</li>
+</ul>
+<h2 id="advanced-information-and-examples">Advanced Information and Examples</h2>
+<p>This section provides more detail about the usage of some attributes and other advanced topics not fully covered before.</p>
+<h3 id="main-getter-attributes">Main Getter Attributes</h3>
+<h4 id="getinchildren">GetInChildren</h4>
+<p>This getter attribute mimics Unity's <code>GetComponentsInChildren</code>. The user can, however, specify a max depth.</p>
+<p>Examples:</p>
+<pre><code class="language-c#">[GetInChildren(MaxDepth = 1)] public GameObject[] children; // Get itself and direct children only.
+// Combine with other attributes
+[GetInChildren(MaxDepth = 1), IgnoreSelf] public GameObject[] directChildrenOnly; // Get direct children only.
+</code></pre>
+<h4 id="getinparent">GetInParent</h4>
+<p>This getter attribute mimics Unity's <code>GetComponentsInParent</code>. The user can, however, specify a max depth.</p>
+<p>Examples:</p>
+<pre><code class="language-c#"> // Get a script in itself, and if it doesn't exist get it in the direct parent only.
+[GetInParent(MaxDepth = 1)] public MyScript myScript;
+// Combine with IgnoreSelf to get a script in the direct parent only
+[GetInParent(MaxDepth = 1), IgnoreSelf] public MyScript myScriptInParentOnly;
+</code></pre>
+<h4 id="getinsiblings">GetInSiblings</h4>
+<p>This getter attribute is used to get a reference to a component attached to a sibling <code>GameObject</code>, including the
+<code>GameObject</code> itself. Unlike most other getter attributes, it doesn't mimic a specific family of Unity methods.</p>
+<p>When the game object is a root object, its siblings are all root objects in its scene.</p>
+<p>Examples:</p>
+<pre><code class="language-c#">[GetInSiblings] public GameObject[] siblings2; // will include this and other root objects if this object is root.
+[GetInSiblings, IgnoreSelf] public GameObject[] siblings3; // will include other siblings but not itself.
+</code></pre>
+<p>The order in which siblings are retrieved corresponds to the hierarchy order, so the current object will not be
+searched first.</p>
+<h4 id="findinparent">FindInParent</h4>
+<p>This attribute performs two searches:</p>
+<p>1) First, it finds a valid parent object that fits the criteria given by this attribute.
+2) If a parent object is found, it searches for references in all its children.</p>
+<blockquote>
+<p><strong>Note:</strong> If multiple parents of the given criteria are found, the first one will always be the one searched for any
+children.</p>
+</blockquote>
+<p>This attribute is useful if, for example, a scene contains multiple canvases and the user is only interested in objects
+that exist in the canvas of the current script.</p>
+<p>The following attributes are available to fine-tune the search for a parent:</p>
+<ul>
+<li><code>IgnoreSelfAsParent</code>: Ignores the current script and its game object when searching for a parent. Defaults to false.</li>
+<li><code>IgnoreParentInSearch</code>: Ignores the parent's game object when looking for children. Defaults to false.</li>
+</ul>
+<p>This attribute supports an optional callback method to further filter parents:</p>
+<p>Examples:</p>
+<pre><code class="language-c#">// Search under the first parent of Canvas type whose name is &quot;TopCanvas&quot; 
+[FindInParent(typeof(Canvas), nameof(FilterParent))] public Image[] images;
+private bool FilterParent(Canvas canvas) {
+    return canvas.name == &quot;TopCanvas&quot;;
+}
+
+// Search for all children of the parent transform because the current transform is ignored as a parent.
+[FindInParent(typeof(Transform), IgnoreSelfAsParent = true)] public Transform[] siblings;
+</code></pre>
+<h4 id="findinassets">FindInAssets</h4>
+<p>The <code>FindInAssets</code> attribute supports additional features that align with <code>AssetDatabase.FindAssets()</code>. Namely:</p>
+<ul>
+<li>You can narrow down the search to happen under certain folders</li>
+<li>You can search by label(s)</li>
+<li>You can search by asset bundle</li>
+</ul>
+<p>Example:</p>
+<pre><code class="language-c#">// With multiple folders
+[FindInAssets(&quot;Assets/Images&quot;, &quot;Assets/ImagesUI&quot;, Label=&quot;UI&quot;, Bundle=&quot;AssetBundleName&quot;] Texture2D[] moreTextures;
+
+// Alternative syntax for searching in folders, this will search in both &quot;Asset/Images&quot;, &quot;Assets/ImagesUI&quot;
+[FindInAssets(&quot;Assets/Images&quot;, SearchInFolders = new[] {&quot;Assets/ImagesUI&quot;})]
+
+// With multiple labels
+[FindInAssets(Labels = new[] {&quot;Label2&quot;, &quot;Label3&quot;}] // Searches for labels &quot;Label2&quot; and &quot;Label3&quot;
+[FindInAssets(Label = &quot;Label1&quot;, Labels = new[] {&quot;Label2&quot;, &quot;Label3&quot;}] // Searches for &quot;Label1&quot;, &quot;Label2&quot; and &quot;Label3&quot;
+</code></pre>
+<blockquote>
+<p><strong>Note:</strong> It's not sensible to combine <code>Label</code> with <code>Labels</code> or search folders as parameters with
+<code>SearchInFolders</code>, but the alternatives exist to simplify the syntax in most cases.</p>
+</blockquote>
+<h3 id="filtervalidation-attributes">Filter/Validation attributes</h3>
+<h4 id="containsinchildren">ContainsInChildren</h4>
+<p>This filter includes the game object itself and inactive objects by default. The user can optionally provide whether
+they want to exclude objects in these situations.</p>
+<p>This filter also allows the usage of <code>MaxDepth</code> to search parents up to a certain depth.
+See: <a href="#getinchildren">GetInChildren</a></p>
+<p>Example:</p>
+<pre><code class="language-c#">[FindInScene, ContainsInChildren(Image, IncludeSelf = false, IncludeInactive = false)]
+</code></pre>
+<h4 id="containsinparent">ContainsInParent</h4>
+<p>This filter includes the game object itself and inactive objects by default. The user can optionally provide whether
+they want to exclude objects in these situations.</p>
+<p>This filter also allows the usage of <code>MaxDepth</code> to search parents up to a certain depth.
+See: <a href="#getinparent">GetInParent</a></p>
+<p>Examples:</p>
+<pre><code class="language-c#">[FindInScene, ContainsInParent(typeof(Canvas))]
+public Component[] componentsUnderACanvas;
+
+// Only allow objects whose direct parent is active and contains a Whatever component
+[ContainsInParent(typeof(Whatever), IncludeSelf=false, IncludeInactive=false, MaxDepth = 1]
+public GameObject value;
+</code></pre>
+<h4 id="ignoreself">IgnoreSelf</h4>
+<p>This filter will reject the game object the script belongs to in the result. The user can optionally ignore only the
+component itself:</p>
+<pre><code class="language-c#">public class Thing : MonoBehaviour {
+
+    //...
+
+    // Gets all the other Things on the same game object
+    [Get, IgnoreSelf(ComponentOnly = true)] public Thing[] otherThings;
+
+}
+</code></pre>
+<h4 id="ignorenested">IgnoreNested</h4>
+<p>This filter discards any components that contain a parent component in the input.</p>
+<p>Consider this example of a Game Object hierarchy:</p>
+<pre><code class="language-text">RootObject
+├── A*
+│   └── B
+│       └── C*
+├── D*
+│   └── E*
+├── F*
+│   └── G
+└── H*
+</code></pre>
+<p>Let's assume that the Game Objects <code>A</code>, <code>C</code>, <code>D</code>, <code>E</code>, <code>F</code>, <code>H</code> (i.e., the nodes denoted with a <code>*</code>) contain a
+<code>CustomScript</code> and all other objects in the scene don't.</p>
+<p>We use this code to retrieve them:</p>
+<pre><code class="language-c#">[FindInScene, IgnoreNested] public CustomScript[] scripts;
+</code></pre>
+<p>The result in <code>scripts</code> will only contain the <code>CustomScript</code> references of <code>A</code>, <code>D</code>, <code>F</code>, and <code>H</code>. i.e. <code>C</code> and <code>E</code>
+will be discarded because <code>A</code> is a parent of <code>C</code> and <code>D</code> is a parent of <code>E</code>.</p>
+<p>Now let's assume we add a <code>CustomScript</code> component to <code>RootObject</code>. This will result in <code>scripts</code> containing only the
+<code>CustomScript</code> on the <code>RootObject</code>, as this is now the parent of all other <code>CustomScript</code> references.</p>
+<h4 id="layer-and-tag">Layer and Tag</h4>
+<p>These attributes allow both inclusion and exclusion.</p>
+<p>Example:</p>
+<pre><code class="language-c#">// Get main camera
+[FindInScene, Layer(&quot;MainCamera&quot;)] public Camera mainCamera;
+// Get cameras that aren't tagged as the main camera.
+[FindInScene, Layer(&quot;MainCamera&quot;, Exclude = true)] public Camera[] otherCameras;
+
+// Get colliders with Walls layer.
+[GetInChildren, Layer(&quot;Walls&quot;)] public Collider[] walls;
+
+// Get colliders that are neither Walls or Doors
+[GetInChildren, Layer(&quot;Walls&quot;, &quot;Doors&quot;, Exclude = true)] public Collider[] triggers;
+</code></pre>
+<h4 id="name">Name</h4>
+<p>This attribute allows for case-insensitive matching.</p>
+<p>Example:</p>
+<pre><code class="language-c#">[FindInScene, Name(StringComparison.OrdinalIgnoreCase, &quot;Test&quot;)] // ...
+</code></pre>
+<p>The default comparison used is <code>StringComparison.Ordinal</code>.</p>
+<h4 id="sort">Sort</h4>
+<p>The <code>Sort</code> filter attribute requires the script type to implement <code>IComparable</code> <strong>or</strong> <code>IComparable&lt;MyScript&gt;</code>
+interface,
+where <code>MyScript</code> is the type of your script. If this condition is not met, you will receive a warning in the
+console and this filter will be skipped.</p>
+<p>If <code>MyScript</code> implements both <code>IComparable&lt;MyScript&gt;</code> and <code>IComparable</code>, the generic version will be used.</p>
+<p>Here's an example of a script that is sortable via the <code>Sort</code> attribute:</p>
+<pre><code class="language-c#">using System;
+using UnityEngine;
+
+public class MyScript : MonoBehaviour, IComparable&lt;MyScript&gt; {
+    public int priority;
+
+    public int CompareTo(MyScript other) {
+        return priority.CompareTo(other.priority);
+    }
+}
+
+// Usage:
+[GetInChildren, Sort] public MyScript[] scripts;
+</code></pre>
+<h4 id="sortby">SortBy</h4>
+<p>The <code>SortBy</code> filter is used to sort references by a method callback. The sort method is required to have the signature
+<code>int CompareMethod(ValidType x, ValidType y)</code> where <code>ValidType</code> is a type that is assignable to <code>ScriptType</code>.</p>
+<p>A caller type may also be specified. See: <a href="#method-callback-requirements">Method Callback Requirements</a></p>
+<p>Example:</p>
+<pre><code class="language-c#">public class MyScript : MonoBehaviour {
+    public int priority;
+}
+
+// ..
+
+public class AnotherScript : MonoBehaviour {
+    [GetInChildren, SortBy(nameof(ComparePriority) public MyScript[] foo1;
+
+    private int ComparePriority(MyScript x, MyScript y) {
+        return x.priority.CompareTo(y.priority);
+    }
+}
+</code></pre>
+<h4 id="filterby">FilterBy</h4>
+<p>The <code>FilterBy</code> filter is used to filter references based on a condition given through a method callback. The method is
+required to have the signature <code>bool Method(ValidType x)</code> where <code>ValidType</code> is a type that is assignable to <code>FieldType</code>.</p>
+<p>A caller type may also be specified. See: <a href="#method-callback-requirements">Method Callback Requirements</a></p>
+<p>Example:</p>
+<pre><code class="language-c#">public class MyScript : MonoBehaviour {
+    public bool isABanana;
+}
+
+public class AnotherScript : MonoBehaviour {
+  [GetInChildren, FilterBy(nameof(IsABanana))] public MyScript[] foo1;
+
+  private bool IsABanana(MyScript x) {
+      return x.isABanana;
+  }
+}
+</code></pre>
+<h4 id="take">Take</h4>
+<p>The <code>Take</code> filter limits the number of references based on an integer value. This value can be provided as a constant
+or through a method callback with the signature <code>int Method()</code>.</p>
+<p>A caller type may also be specified. See: <a href="#method-callback-requirements">Method Callback Requirements</a></p>
+<p>This method will be called just once at the time the filter is applied.</p>
+<p>Example:</p>
+<pre><code class="language-c#">// Take the first 10 items 
+[FindInScene, SortByID, Take(10)] public MyBehaviour[] items;
+
+public int limit;
+
+// Take the first &lt;limit&gt; items 
+[FindInScene, SortByID, Take(nameof(TakeLimit))] public MyBehaviour[] items2;
+
+private int TakeLimit() {
+    return limit;
+}
+</code></pre>
+<h4 id="takelast">TakeLast</h4>
+<p>This attribute works exactly the same way as <code>Take</code>, except it returns the <em>last</em> <code>X</code> elements instead of the first.</p>
+<h4 id="takewhile">TakeWhile</h4>
+<p>The <code>TakeWhile</code> filter accepts references until a condition is true. The condition is given through a callback method
+with the signature <code>bool Method(ValidType x)</code> where <code>ValidType</code> is a type that is assignable to <code>FieldType</code>.</p>
+<p>A caller type may also be specified. See: <a href="#method-callback-requirements">Method Callback Requirements</a></p>
+<p>Unlike <code>Take</code> and <code>TakeLast</code>, this method will be called for every input object until the first time it returns false.</p>
+<h3 id="misc">Misc</h3>
+<h4 id="method-callback-requirements">Method Callback Requirements</h4>
+<p>Filters that take a callback method support providing a custom caller type.</p>
+<p>If the caller type is null or not provided, the caller type is the MonoBehaviour that contains the field itself.
+In this case, the method is allowed to be non-static as well as static.</p>
+<p>When the caller type is a different type, then the method is required to be static.</p>
+<p>Example 1:</p>
+<pre><code class="language-c#">[FilterBy(nameof(Filter))] public Object[] objects;
+
+private bool Filter(Object obj) { // This can be static as well
+    return obj.name.StartsWith(&quot;Banana&quot;);
+}
+</code></pre>
+<p>Example 2:</p>
+<pre><code class="language-c#">[FilterBy(typeof(BananaGator), nameof(BananaGator.Filter))] public Object[] objects;
+
+private class BananaGator {
+    public static bool Filter(Object obj) { // This cannot be non-static
+        return obj.name.StartsWith(&quot;Banana&quot;);
+    }   
+}
+</code></pre>
+<p>Method callbacks have the following restrictions:</p>
+<ul>
+<li>They cannot have <em>extraneous</em> optional parameters</li>
+<li>They cannot have <code>in</code>/<code>out</code>/<code>ref</code> parameters</li>
+</ul>
+<p>Example 1 (Valid):</p>
+<pre><code class="language-c#">[FilterBy(nameof(Filter))] public Object[] objects;
+
+// This is fine because the optional argument is part of the expected signature.
+private bool Filter(Object obj = null) {
+    return obj.name.StartsWith(&quot;Banana&quot;);
+}
+</code></pre>
+<p>Example 2 (Invalid):</p>
+<pre><code class="language-c#">[FilterBy(nameof(Filter))] public Object[] objects;
+
+// This method will fail to get detected because it has an extra argument, even though it's optional.
+private bool Filter(Object obj, string prefix=&quot;Banana&quot;) {
+    return obj.name.StartsWith(prefix);
+}
+</code></pre>
+<h3 id="filter-priority-order">Filter Priority Order</h3>
+<p>Please note the following: <em>The defined order of attributes is <strong>not</strong> guaranteed by the C# Language specification
+to be consistent.</em> Attributes <code>[A, B] [C]</code> might be processed as <code>[A, B, C]</code>, but they might also be processed as
+<code>[B, C, A]</code>.</p>
+<p>Most filters are order-agnostic, and they will produce a correct result regardless of the order. However, some filters
+might depend on the order of the input.</p>
+<p>For this reason, filter attributes can override the property <code>PriorityOrder</code> which will make their order of execution
+more predictable. The built-in filters use constants defined in <code>FilterOrder</code> to place them in the following priority
+groups:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">FilterOrder</th>
+<th>Value</th>
+<th style="text-align: left;">Used by Filters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">First</td>
+<td><code>int.MinValue</code></td>
+<td style="text-align: left;"><code>ExactType</code>, <code>TypeConstraint</code>, <code>Contains</code>, <code>ContainsInChildren</code>, <code>ContainsInParent</code></td>
+</tr>
+<tr>
+<td style="text-align: right;">PreProcess</td>
+<td><code>-400</code></td>
+<td style="text-align: left;">none</td>
+</tr>
+<tr>
+<td style="text-align: right;">PreFilter</td>
+<td><code>-300</code></td>
+<td style="text-align: left;"><code>IgnoreSelf</code>, <code>IgnoreDisabled</code>, <code>IgnoreInactive</code></td>
+</tr>
+<tr>
+<td style="text-align: right;">Filter</td>
+<td><code>-200</code></td>
+<td style="text-align: left;"><code>Layer</code>, <code>Tag</code>, <code>Name</code>, <code>FilterBy</code></td>
+</tr>
+<tr>
+<td style="text-align: right;">PostFilter</td>
+<td><code>-100</code></td>
+<td style="text-align: left;"><code>IgnoreNested</code></td>
+</tr>
+<tr>
+<td style="text-align: right;">Default</td>
+<td><code>0</code></td>
+<td style="text-align: left;">none</td>
+</tr>
+<tr>
+<td style="text-align: right;">PreSort</td>
+<td><code>100</code></td>
+<td style="text-align: left;"><code>Unique</code></td>
+</tr>
+<tr>
+<td style="text-align: right;">Sort</td>
+<td><code>200</code></td>
+<td style="text-align: left;"><code>Sort</code>, <code>SortBy</code>, <code>SortByDistance</code>, <code>SortByName</code>, <code>SortByID</code></td>
+</tr>
+<tr>
+<td style="text-align: right;">PostSort</td>
+<td><code>300</code></td>
+<td style="text-align: left;"><code>Reverse</code></td>
+</tr>
+<tr>
+<td style="text-align: right;">PostProcess</td>
+<td><code>400</code></td>
+<td style="text-align: left;"><code>Take</code>, <code>TakeLast</code>, <code>TakeWhile</code></td>
+</tr>
+<tr>
+<td style="text-align: right;">Last</td>
+<td><code>int.MaxValue</code></td>
+<td style="text-align: left;">none</td>
+</tr>
+</tbody>
+</table>
+<p>The default order was mostly decided on logical necessity, and then very loosely on perceived complexity, i.e., more
+expensive filters should generally happen after the lower-cost ones already filtered out many of the objects.</p>
+<p>In reality, these are the only filters whose order matters the most:</p>
+<ul>
+<li><code>TypeConstraint</code>, because it introduces guarantees that might be useful for custom filters or filters with method
+  callbacks.</li>
+<li><code>Contains</code>/<code>ContainsInChildren</code>/<code>ContainsInParent</code>, for the same reasons as <code>TypeConstraint</code>.</li>
+<li><code>Reverse</code>, because it only makes sense to call it after sorting.</li>
+<li><code>Take</code>/<code>TakeLast</code>/<code>TakeWhile</code>, because it should typically happen after all invalid values have been filtered out
+  and after the input has been given its final order.</li>
+</ul>
+<h4 id="overriding-priority">Overriding Priority</h4>
+<p>There may be some advanced cases where the user wishes to override the filter order. This is done by the <code>Order</code>
+property supported by all filter attributes.</p>
+<p>Note the following example. In a scene that contains the objects with the names <code>A</code>, <code>B</code>, and <code>C</code>:</p>
+<pre><code class="language-c#">[FindInScene, SortByName, Take(2), Reverse] public Transform[] examples;
+</code></pre>
+<p>The filters will be applied in the order <code>SortByName</code>, <code>Reverse</code>, <code>Take</code>, regardless of the order they're placed in
+code. This means the result will always be <code>[C, B]</code></p>
+<p>The user can override the order as follows:</p>
+<pre><code class="language-c#">[FindInScene, SortByName(Order = 0), Take(2, Order = 1), Reverse(Order = 2)]
+public Transform[] examples;
+</code></pre>
+<p>This will force the order <code>SortByName</code>, <code>Take</code>, <code>Reverse</code>. Therefore, the result will now be <code>[B, A]</code></p>
+<p>Note that if <code>Order</code> isn't provided, the filter will have its default order of <code>PriorityOrder</code>. Therefore, to avoid
+confusion, if you provide the Order for <em>one</em> filter on a field, then you should provide it for <em>all</em> of them.</p>
+<p>Alternatively, the user can make use of the built-in constants to sort filters by a relative order, but this is
+potentially more confusing and less readable. A couple of examples:</p>
+<pre><code class="language-c#">using Teo.AutoReference.System; // For FilterOrder
+
+// Force Reverse to happen at the end
+[FindInScene, SortByName, Take(2), Reverse(Order = FilterOrder.Maximum)]
+public Transform[] examples;
+
+// All sort attributes have the default priority of FilterOrder.Sort
+// Using PostSort ensures an order higher than Sort, and incrementing it by 1 ensures a relatively even higher order.
+[FindInScene, SortByName, Take(2, Order = FilterOrder.PostSort), Reverse(Order = FilterOrder.PostSort + 1)]
+public Transform[] examples;
+</code></pre>
+<h3 id="isyncobserver-explicit-implementation-resolution">ISyncObserver explicit implementation resolution</h3>
+<p>C# allows two ways to implement an interface:</p>
+<pre><code class="language-c#">public class ImplicitExample : ISyncObserver {
+    public void OnSync(MonoBehaviour target) {
+        // OnSync is publicly visible
+    }
+}
+
+public class ExplicitExample : ISyncObserver {
+    void ISyncObserver.OnSync(MonoBehaviour target) {
+        // OnSync is only visible when we cast to ISyncObserver 
+    }
+}
+</code></pre>
+<p>An explicit implementation supports having a different <code>OnSync</code> method in a hierarchy.</p>
+<pre><code class="language-c#">public class ParentType : ISyncObserver {
+    void ISyncObserver.OnSync(MonoBehaviour target) {
+        Debug.Log(&quot;ParentType&quot;);
+    }
+}
+
+public class ChildType: ISyncObserver {
+    void ISyncObserver.OnSync(MonoBehaviour target) {
+        Debug.Log(&quot;ChildType&quot;);
+    }
+}
+</code></pre>
+<p>The explicit implementation has the additional effect of "hiding" the method from the type, so it's only visible
+when you cast it to the interface.</p>
+<p>When you call an interface method, explicitly or not, C# calls the implementation that matches the runtime type.
+However, when syncing an <code>ISyncObserver</code> object, the toolkit will behave differently: it will call <em>all</em> <code>OnSync</code>
+methods in the inheritence hierarchy. The order is guaranteed to be from the base type to the derived type. This is
+<em>intentional</em> due to the nature of this feature, so that each type can ensure its own syncing logic regardless of how
+it is extended.</p>
+<p>In the case of virtual implementations of <code>ISyncObserver</code>, the virtual method will be called on the most derived
+override.</p>
+<p>Example:</p>
+<pre><code class="language-c#">
+public class ParentType : ISyncObserver {
+    public virtual void OnSync(MonoBehaviour target) {
+        Debug.Log(&quot;ParentType&quot;);
+    }
+}
+
+public class MidType : ParentType, ISyncObserver {
+    void ISyncObserver.OnSync(MonoBehaviour target) {
+        Debug.Log(&quot;MidType&quot;);
+    }
+}
+
+public class ChildType: MidType {
+    public override void OnSync(MonoBehaviour target) {
+        Debug.Log(&quot;ChildType&quot;);
+    }
+}
+</code></pre>
+<p>The log will print <code>MidType</code> and then <code>ChildType</code>. The <code>OnSync</code> method in <code>ParentType</code> won't be called because
+it's overriden by <code>ChildType</code>.</p>
+<p>To replicate the same behavior, use the <code>AutoReference.SyncData(...)</code> family of methods instead of manually calling
+the <code>OnSync</code> method.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="cheatsheet.html" class="btn btn-neutral float-right" title="Cheat Sheet">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+      <span><a href="cheatsheet.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="js/copy-link.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.6.1
+Build Date UTC : 2025-10-12 13:43:10.744181+00:00
+-->

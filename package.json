@@ -1,0 +1,21 @@
+{
+  "name": "com.ddb.autoreference",
+  "displayName": "ddb - Auto-Reference Toolkit",
+  "description": "A toolkit to automatically retrieve and filter references to components or assets via custom attributes.",
+  "author": "datdb",
+  "version": "1.0.0",
+  "unity": "2020.3",
+  "licensesUrl": "https://zoodinger.gitlab.io/autoreference/license.html",
+  "documentationUrl": "https://zoodinger.gitlab.io/autoreference/index.html",
+  "changelogUrl": "https://zoodinger.gitlab.io/autoreference/changelog.html",
+  "keywords": [
+    "editor",
+    "extensions",
+    "tools",
+    "utilities",
+    "automation",
+    "organization",
+    "plugin"
+  ],
+  "dependencies": {}
+}
